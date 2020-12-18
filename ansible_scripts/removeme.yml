@@ -1,0 +1,15 @@
+---
+- name: removing user
+  hosts: all
+  vars_prompt:
+
+    - name: username
+      prompt: what is the name of the user to be deleted?
+      private: no
+
+  tasks:
+    - name: removing user {{ username }}
+      user:
+        name: {{ username }}
+        state: absent
+        remove: yes
