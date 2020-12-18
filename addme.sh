@@ -3,7 +3,6 @@
 #get some requisite info about the user to be added
 echo What is the name of your user?
 read uname
-
 echo What is their ssh public key?
 read sshkey
 
