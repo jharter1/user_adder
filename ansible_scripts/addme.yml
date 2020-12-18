@@ -18,7 +18,7 @@
 
     - name: adding new users
       user:
-        name: {{ username }}
+        name: "{{ username }}"
         shell: /bin/bash
 
     - name: adding the public key
