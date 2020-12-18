@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: gathering users from /etc/passwd
-      command: awk -F: '{print $1}' /etc/passwd
+      command: "awk -F: '{print $1}' /etc/passwd"
       register: userlist
 
     - name: print to console
