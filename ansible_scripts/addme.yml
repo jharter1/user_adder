@@ -1,10 +1,8 @@
 ---
-#script will add users, with input strings from the admin
-
 - name: creating user
   hosts: all
-  vars_prompt:
 
+  vars_prompt:
     - name: username
       prompt: what is the name of your user?
       private: no
@@ -16,11 +14,12 @@
   tasks:
     - name: Print a debug message
       ansible.builtin.debug:
-        msg: 'You will be adding {{ username }} using key {{ sshkey }}'
+        msg: 'You will be adding {{ username }} with key {{ sshkey }}'
 
     - name: adding new users
       user:
         name: {{ username }}
+        shell: /bin/bash
 
     - name: adding the public key
       ansible.posix.authorized_key:
