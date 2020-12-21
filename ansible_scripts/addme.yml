@@ -1,28 +1,16 @@
 ---
 - name: creating user
   hosts: all
-
-  vars_prompt:
-    - name: username
-      prompt: what is the name of your user?
-      private: no
-
-    - name: sshkey
-      prompt: what is their ssh public key?
-      private: no
-
+  become: yes
   tasks:
-    - name: Print a debug message
-      ansible.builtin.debug:
-        msg: 'You will be adding {{ username }} with key {{ sshkey }}'
-
     - name: adding new users
       user:
-        name: "{{ username }}"
+        name: charles
         shell: /bin/bash
+        password: "r3s3tm3!"
 
     - name: adding the public key
       ansible.posix.authorized_key:
-        user: {{ username }}
+        user: charles
         state: present
-        key: {{ sshkey }}
+        key: "{{ lookup('file', '/home/charles/.ssh/id_rsa.pub') }}"

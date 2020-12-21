@@ -1,8 +1,5 @@
 #! /bin/
 
-#get the right username
-echo What is the name of the user to be deleted?
-read delname
+delname = charles
 
-#remove him
-userdel $delname
+userdel -r $delname
