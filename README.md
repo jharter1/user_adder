@@ -23,5 +23,3 @@ first. The user being added must already exist with an ssh keypair on the machin
 # also
 
 'charles' can be treated as a variable and replaced with any other name; its role is that of a placeholder.
-
-addme.sh requires that your user's public key be placed in an accessible network location that can be reached via wget. Make sure to set this up before running the script.
