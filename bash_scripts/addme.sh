@@ -1,9 +1,9 @@
 #! /bin/bash
 
 #get some requisite info about the user to be added
-echo What is the name of your user?
-read uname
-echo What is the location of their ssh public key?
+uname = charles
+
+echo Please paste in the public key for $uname :
 read sshkey
 
 #create relevant user files & directories
@@ -17,4 +17,4 @@ chmod 700 /home/$uname/.ssh
 chmod 644 /home/$uname/.ssh/authorized_keys
 
 #place their ssh key where it needs to go
-cp $sshkey > /home/$uname/.ssh/authorized_keys
+echo $sshkey > /home/$uname/.ssh/authorized_keys
