@@ -8,8 +8,9 @@
         name: charles
         shell: /bin/bash
         password: "r3s3tm3!"
+        update_password: on_create
 
-    - name: adding the public key
+    - name: adding the public key from local user
       ansible.posix.authorized_key:
         user: charles
         state: present
